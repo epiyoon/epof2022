@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var quizlist = new Array()
+        quizlist[0] = "quizA.html"
+        quizlist[1] = "quizB.html"
+
+        function randomquiz() {
+            window.location = quizlist[Math.floor(Math.random() * quizlist.length)]
+        }
+    </script>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="2022.html">2022</a></li>
+                <li><a href="media.html">MEDIA</a></li>
+                <li><a href="#" onclick="randomquiz()">QUIZ</a></li>
+                <li><a href="birthday.html">B-DAY</a></li>
+            </ul>
+        </nav>
+    </header>
+    media
+</body>
+
+</html>

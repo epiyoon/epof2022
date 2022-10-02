@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="stylequiz.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="2022.html">2022</a></li>
+                <li><a href="media.html">MEDIA</a></li>
+                <li><a href="#" onclick="randomquiz()">QUIZ</a></li>
+                <li><a href="birthday.html">B-DAY</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="top">
+        ˚⁺ 2022 정한고사 (A형) ₊⁎
+    </div>
+    <div class="background">
+        <div class="window">
+            <div class="popup">
+                <div class="modalTop">.•♥<br>ʚ 결과 확인 ɞ</div>
+                <div class="inputUser">
+                    <div class="nick"><input placeholder="트위터 닉네임" class="userinput" id="twnick" /></div>
+                    <div class="nick"><input placeholder="트위터 아이디" class="userinput" id="twid" /></div>
+                </div>
+                <div class="modalBottom">* 모든 정보는 결과지 출력을 위해서만 사용됩니다.</div>
+                <button id="resultBtn" class="w-btn w-btn-next"> 확인 </button>
+            </div>
+            <div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class=" quiz-container">
+        <div id="result">
+            <div id="result-bg-a" onclick="downImg()"></div>
+            <div id="extra"><b>#에피소드로_정한_장면_2022</b><br><br>* 이미지 터치 시 저장이 가능합니다.<br>* 입력한 정보와 동일한 계정으로만 참여가 가능합니다.
+            </div>
+        </div>
+        <div id="quiz"></div>
+    </div>
+
+    <div class="quiz-ctrl">
+        <button id="previous" class="w-btn w-btn-prev"> 이전 </button>
+        <button id="next" class="w-btn w-btn-next"> 다음 </button>
+        <button id="submit" class="w-btn w-btn-submit"> 제출 </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <script type="text/javascript">
+        const Uid = document.getElementById('twid').value;
+        function downImg() {
+            html2canvas($("#result-bg-a")[0]).then(function (canvas) {
+                var myImage = canvas.toDataURL();
+                myImage.crossOrigin = 'Anonymous';
+                downloadURI(myImage, "${Uid}.jpg")
+            });
+        }
+
+        function downloadURI(uri, name) {
+            var link = document.createElement("a")
+            link.download = name;
+            link.href = uri;
+            document.body.appendChild(link);
+            link.click();
+        }
+    </script>
+
+    <script>
+        var quizlist = new Array()
+        quizlist[0] = "quizA.html"
+        quizlist[1] = "quizB.html"
+
+        function randomquiz() {
+            window.location = quizlist[Math.floor(Math.random() * quizlist.length)]
+        }
+        const quizData = [
+            {
+                question: '<b>01</b> | \'会いたい(Aitai)\' 커버곡이 업로드 된 날짜는?',
+                answers: {
+                    a: "2월 12일",
+                    b: "2월 13일",
+                    c: "3월 12일",
+                    d: "3월 13일"
+                },
+                correct: 'c'
+            },
+            {
+                question: '<b>02</b> | 고잉 라디오 속 정한이가 설명하지 <b>않은</b> 곡은?',
+                answers: {
+                    a: '벚꽃 엔딩',
+                    b: '낙하',
+                    c: '별 보러 가자',
+                    d: 'Rock with you'
+                },
+                correct: 'd'
+            },
+            {
+                question: '<b>03</b> | 올해 공개 된 정한이의 화보가 <b>아닌</b> 것은?',
+                answers: {
+                    a: 'SPUR',
+                    b: 'GINGER',
+                    c: '엘르',
+                    d: '아레나'
+                },
+                correct: 'b'
+            },
+            {
+                question: '<b>04</b> | 업로드 된 순서로 <b>옳은</b> 것은?<br>',
+                answers: {
+                    a: '①-②-④-③',
+                    b: '①-④-②-③',
+                    c: '②-①-④-③',
+                    d: '②-③-①-④'
+                },
+                correct: 'b'
+            },
+            {
+                question: '<b>05</b> | 다음 빈칸에 들어갈 말로 <b>옳은</b> 것은?',
+                answers: {
+                    a: '차돌',
+                    b: '곱쏘',
+                    c: '대게',
+                    d: '치맥'
+                },
+                correct: 'd'
+            },
+            {
+                question: '<b>06</b> | 다음 빈칸에 들어갈 말로 <b>옳은</b> 것은?',
+                answers: {
+                    a: '에피소드'
+                },
+                correct: 'a'
+            }
+        ]
+
+        const quizDisplay = document.getElementById('quiz');
+        const submitBtn = document.getElementById('submit');
+        const previousBtn = document.getElementById('previous');
+        const nextBtn = document.getElementById('next');
+        const extraDiv = document.getElementById('extra');
+
+        let currentSlide = 0;
+        const resultDisplay = document.getElementById('result-bg-a');
+
+        function buildQuiz() {
+            extraDiv.style.display = 'none';
+            let output = [];
+            quizData.forEach(
+                (currentQuestion, questionNum) => {
+                    const answers = [];
+                    for (item in currentQuestion.answers) {
+                        answers.push(`<label>
+                        <input type="radio" name="question${questionNum}" value="${item}">${currentQuestion.answers[item]}
+                        </label><br><br>`);
+                    }
+                    output.push(`<div class="slide">
+        <div class="question">${currentQuestion.question}<br><br><div class="Qpics"><img src="quizA_${questionNum}.JPG" onerror='this.style.display="none"'></div></div>
+        <div class="answer">${answers.join('')}</div>
+    </div>`);
+                }
+            );
+            quizDisplay.innerHTML = output.join('');
+        }
+
+        function showResult() {
+            document.querySelector(".background").className = "background show";
+            submitBtn.style.display = 'none';
+            previousBtn.style.display = 'none';
+            quizDisplay.style.display = 'none';
+            extraDiv.style.display = 'none';
+        }
+
+        function calc() {
+            const answerDisplays = quizDisplay.querySelectorAll('.answer');
+            let numCorrect = 0;
+
+            quizData.forEach((currentQuestion, questionNum) => {
+                const answerDisplay = answerDisplays[questionNum];
+                const selector = `input[name=question${questionNum}]:checked`;
+                const userAnswer = (answerDisplay.querySelector(selector) || {}).value;
+
+
+                if (userAnswer === currentQuestion.correct) {
+                    numCorrect++;
+                }
+            });
+
+            const score = 4 + 16 * numCorrect;
+            return score;
+        }
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active-slide');
+            slides[n].classList.add('active-slide');
+            currentSlide = n;
+            if (currentSlide === 0) {
+                previousBtn.style.display = 'none';
+            } else {
+                previousBtn.style.display = 'inline-block';
+            }
+            if (currentSlide === slides.length - 1) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'inline-block';
+            } else {
+                nextBtn.style.display = 'inline-block';
+                submitBtn.style.display = 'none';
+                if (document.getElementById('retry')) {
+                    document.getElementById('retry').style.display = 'none';
+                }
+            }
+        }
+
+        function result(score) {
+            document.querySelector(".background").className = "background";
+            resultDisplay.style.display = 'block';
+            extraDiv.style.display = 'block';
+            console.log(score);
+            const Uname = document.getElementById('twnick').value;
+            const Uid = document.getElementById('twid').value;
+            resultDisplay.innerHTML = `<div id="user">${Uname} (@ ${Uid})</div><div id="score">${score}</div>`;
+        }
+
+        document.querySelector("#submit").addEventListener("click", showResult);
+        document.querySelector("#resultBtn").addEventListener("click", function () { result(calc()) });
+
+        function showNextSlide() { showSlide(currentSlide + 1); }
+        function showPreviousSlide() { showSlide(currentSlide - 1); }
+
+        buildQuiz();
+        const slides = document.querySelectorAll('.slide');
+        showSlide(currentSlide);
+        previousBtn.addEventListener('click', showPreviousSlide);
+        nextBtn.addEventListener('click', showNextSlide);
+        submitBtn.addEventListener('click', showResult);
+    </script>
+</body>
+
+</html>

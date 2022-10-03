@@ -72,7 +72,7 @@
             html2canvas($("#result-bg-a")[0]).then(function (canvas) {
                 var myImage = canvas.toDataURL();
                 myImage.crossOrigin = 'Anonymous';
-                downloadURI(myImage, "${Uid}.jpg")
+                downloadURI(myImage, "${Uid}")
             });
         }
 

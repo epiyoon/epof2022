@@ -41,7 +41,7 @@ header {
     align-items: center;
     background-image: url('header.png');
     background-size: cover;
-    z-index: 2;
+    z-index: 100;
 }
 
 header > nav {

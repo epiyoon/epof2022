@@ -1,0 +1,123 @@
+* {
+    font-family: 'NanumSquare'
+}
+
+body {
+  background: whitesmoke;
+  margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    color: white;
+}
+
+header {
+    width: 100%;
+    height: 5%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background-image: url('header.png');
+    background-size: cover;
+    z-index: 2;
+}
+
+header > nav {
+	width:100%;
+	height:100%;
+}
+
+header ul {
+	height: 100%;
+	display: flex;
+	justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-top: 0;
+}
+
+header ul > li {
+	height: 100%;
+	display: flex;
+	align-items: center;
+    margin: 0 5% 0 5%;
+    font-size: 5%;
+}
+
+.topper, .top {
+    background-color: #5D4C63;
+    color:white;    
+    text-align: center;
+}
+
+.topper {
+    font-family: '평창 평화체';
+    padding:20% 5% 0 5%;
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.top {
+    padding: 5% 5% 0 5%;
+    font-size:15%;
+}
+
+.bg2015, .bg2016, .bg2017, .bg2018, .bg2019, .bg2020, .bg2021 {
+    width: 100%;
+    height: 100vh;
+    position: relative
+  }
+  
+  .bg-wrap {
+    clip: rect(0, auto, auto, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bg {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+  
+  .bg2015 .bg {
+    background-image: url('bg2015.jpg')
+  }
+  
+  .bg2016 .bg {
+    background-image: url('bg2016.jpg')
+  }
+  
+  .bg2017 .bg {
+    background-image: url('bg2017.jpg')
+  }
+  
+  .bg2018 .bg {
+    background-image: url('bg2018.jpg')
+  }
+  
+  .bg2019 .bg {
+    background-image: url('bg2019.jpg')
+  }
+  
+  .bg2020 .bg {
+    background-image: url('bg2020.jpg')
+  }
+  
+  .bg2021 .bg {
+    background-image: url('bg2021.jpg')
+  }

@@ -24,6 +24,7 @@ header {
     align-items: center;
     background-image: url('header.png');
     background-size: cover;
+    z-index: 2;
 }
 
 header > nav {
@@ -48,7 +49,10 @@ header ul > li {
 }
 
 .top {
+    text-align: center;
     padding: 20% 10% 0 10%;
+    font-family: '평창 평화체';
+    font-size: 200%;
 }
 
 .schedule {
@@ -77,4 +81,10 @@ header ul > li {
 
 .start {
     margin-right: 2%;
+}
+
+.monthly {
+    font-family: '평창 평화체';
+    font-size: 150%;
+    font-weight: bold;
 }

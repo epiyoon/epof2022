@@ -22,10 +22,6 @@ body {
     margin: 0;
 }
 
-body * {
-    touch-action: none;
-}
-
 ul {
     list-style: none;
 }

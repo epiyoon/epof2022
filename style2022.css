@@ -1,3 +1,18 @@
+@font-face {
+    src: url('./fonts/NanumSquareR.ttf');
+    font-family: 'NanumSquare';
+}
+
+@font-face {
+    src: url('./fonts/PyeongChangPeace-Light.ttf');
+    font-family: '평창 평화체';
+}
+
+@font-face {
+    src: url('./fonts/PyeongChangPeace-Bold.ttf');
+    font-family: '평창 평화체B';
+}
+
 * {
     font-family: 'NanumSquare'
 }

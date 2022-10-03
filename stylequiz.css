@@ -1,3 +1,18 @@
+@font-face {
+    src: url('./fonts/NanumSquareR.ttf');
+    font-family: 'NanumSquare';
+}
+
+@font-face {
+    src: url('./fonts/PyeongChangPeace-Light.ttf');
+    font-family: '평창 평화체';
+}
+
+@font-face {
+    src: url('./fonts/PyeongChangPeace-Bold.ttf');
+    font-family: '평창 평화체B';
+}
+
 * {
     font-family: 'NanumSquare'
 }
@@ -5,7 +20,6 @@
 body {
     background: whitesmoke;
     margin: 0;
-    overflow: hidden;
 }
 
 body * {
@@ -94,8 +108,7 @@ header ul > li {
 
 #score {
     text-align: center;
-    font-family: '평창 평화체';
-    font-weight: bold;
+    font-family: '평창 평화체B';
     font-size: 400%;
     padding: 0 35% 20% 30%;
     margin-top: 10%;

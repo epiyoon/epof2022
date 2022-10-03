@@ -1,3 +1,13 @@
+@font-face {
+  src: url('./fonts/NanumSquareR.ttf');
+  font-family: 'NanumSquare';
+}
+
+@font-face {
+  src: url('./fonts/PyeongChangPeace-Bold.ttf');
+  font-family: '평창 평화체B';
+}
+
 * {
     font-family: 'NanumSquare'
 }
@@ -57,9 +67,8 @@ header ul > li {
 }
 
 .topper {
-    font-family: '평창 평화체';
+    font-family: '평창 평화체B';
     padding:20% 5% 0 5%;
-    font-weight: bold;
     font-size: 200%;
 }
 

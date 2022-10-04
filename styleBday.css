@@ -77,7 +77,7 @@ header ul > li {
     font-size:15%;
 }
 
-.bg2015, .bg2016, .bg2017, .bg2018, .bg2019, .bg2020, .bg2021 {
+.bg2015, .bg2016, .bg2017, .bg2018, .bg2019, .bg2020, .bg2021, .bg2022 {
     width: 100%;
     height: 100vh;
     position: relative
@@ -129,4 +129,8 @@ header ul > li {
   
   .bg2021 .bg {
     background-image: url('bg2021.jpg')
+  }
+  
+  .bg2022 .bg {
+    background-image: url('bg2022.jpg')
   }
